@@ -1,11 +1,16 @@
-# Entradas
-edad = int(input("Ingrese su edad: "))
+# EJERCICIO 7 - MAYOR O MENOR DE EDAD
 
-# Proceso
-if edad >= 18:
-    mensaje = "MAYOR de edad"
-else:
-    mensaje = "MENOR de edad"
+print("\n=== EJERCICIO 7: VALIDACIÓN DE EDAD ===\n")
 
-# Salidas
-print("Usted es:", mensaje) 
+try:
+    # Entrada
+    edad = int(input("Ingrese su edad: "))
+
+    # Proceso y salida
+    if edad >= 18:
+        print(f"\nUsted es MAYOR de edad ({edad} años)")
+    else:
+        print(f"\nUsted es MENOR de edad ({edad} años)")
+
+except ValueError:
+    print("\nError: Debe ingresar una edad válida")
