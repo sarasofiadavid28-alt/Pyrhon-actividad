@@ -1,38 +1,47 @@
 # index.py
-# creado por
-import os # interactua operando (archivos,directorios,rutas,variables de entorno)
+
+import os
 import sys
 import subprocess
 
 
+def mostrar_menu():
+    print("\n" + "=" * 40)
+    print("TALLER 1 - ALGORITMOS BÁSICOS EN PYTHON")
+    print("Autor: Carlos Andres Castro Jaramillo")
+    print("=" * 40)
+    print("MENÚ PRINCIPAL\n")
 
+    for i in range(1, 26):
+        print(f"{i}. Ejecutar algoritmo {i}")
+
+    print("0. Salir\n")
 
 
 while True:
-    print("=============================")
-    print("taller 1 - Algortimos basicos en python")
-    print("by carlos andres castro jaramillo")
-    print("menu principal")
-    print("=============================")
-    
-    for i in range(1,26):
-        print(f"{i}. Ejecutar ALgoritmo{i}")
-    print("0.salir\n")
-    
-    opcion = input("seleccione una opcion: ")
-    
+    mostrar_menu()
+
+    opcion = input("Seleccione una opción: ").strip()
+
     if opcion == "0":
-        print("saliendo...")
+        print("\nSaliendo del sistema...")
         break
-    
-    if opcion.isdigit() and 1 <= int(opcion) <= 25:
+
+    # Validación clara
+    if not opcion.isdigit():
+        print("❌ Debe ingresar un número")
+        continue
+
+    opcion_num = int(opcion)
+
+    if 1 <= opcion_num <= 25:
         archivo = f"ejercicio{opcion}.py"
-        
+
         if os.path.exists(archivo):
+            print(f"\n=== EJECUTANDO ALGORITMO {opcion} ===\n")
             subprocess.run([sys.executable, archivo])
             input("\nPresione Enter para continuar...")
         else:
-            print("Archivo no encontrado")
+            print("❌ Archivo no encontrado")
     else:
-        print("Opcion no valida")
-
+        print("❌ Opción fuera de rango")
