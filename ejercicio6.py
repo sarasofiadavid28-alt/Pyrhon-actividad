@@ -1,11 +1,16 @@
-# Entradas
-numero = int(input("Ingrese un número entero: "))
+# EJERCICIO 6 - NÚMERO PAR O IMPAR
 
-# Proceso
-if numero % 2 == 0:
-    resultado = "PAR"
-else:
-    resultado = "IMPAR"
+print("\n=== EJERCICIO 6: PAR O IMPAR ===\n")
 
-# Salidas
-print("El número es:", resultado)
+try:
+    # Entrada
+    numero = int(input("Ingrese un número entero: "))
+
+    # Proceso y salida
+    if numero % 2 == 0:
+        print(f"\nEl número {numero} es PAR")
+    else:
+        print(f"\nEl número {numero} es IMPAR")
+
+except ValueError:
+    print("\nError: Debe ingresar un número entero válido")
